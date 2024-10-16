@@ -1,0 +1,88 @@
+/* Mengatur gaya dasar body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Mengatur gaya untuk header */
+header {
+    background-color: #007acc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #fff;
+    width: 50%;
+    margin: 10px auto;
+}
+
+/* Container untuk konten utama */
+.container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Gaya untuk card biodata */
+#biodata {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Gaya untuk teks dalam card */
+#biodata p {
+    margin: 10px 0;
+}
+
+/* Gaya untuk teks yang lebih menonjol */
+#biodata p strong {
+    color: #007acc;
+}
+
+/* Gaya untuk footer */
+footer {
+    background-color: #007acc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Responsif: menyesuaikan tampilan pada layar kecil */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #biodata {
+        max-width: 100%;
+        padding: 20px;
+    }
+}

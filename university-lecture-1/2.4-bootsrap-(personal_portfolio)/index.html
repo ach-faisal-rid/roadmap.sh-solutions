@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana dengan Bootstrap</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Single page CV of Faisal Achmad Ridhani, a Software Engineer" />
+    <meta name="keywords"
+        content="frontend developer, html, css, javascript, resume, web developer, software engineer" />
+    <meta name="author" content="Faisal Achmad Ridhani" />
+
+    <!-- Memasukkan Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Favicon Meta Tags -->
+    <link rel="icon" href="image/robot-32.png" type="image/x-icon" />
+
+    <!-- Custom CSS -->
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card {
+            height: 100%;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">Hello</a>
+            <!-- hamburger -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                    <!-- authentication -->
+
+                    <!-- Login Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+
+                    <!-- Register Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                </ul>
+                <!-- pencarian -->
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Cari</button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="content">
+        <div class="container mt-5">
+            <div class="row g-3">
+                <!-- Kolom 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="image/youtube-.jpg" class="card-img-top" alt="Kolom 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Kolom 1</h5>
+                            <p class="card-text">Ini adalah deskripsi dari kolom pertama.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalYouTube">
+                                Baca Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="image/dacasaio.jpg" class="card-img-top" alt="Kolom 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Kolom 2</h5>
+                            <p class="card-text">Ini adalah deskripsi dari kolom kedua.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalInstagram">
+                                Baca Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="image/facebook.jpg" class="card-img-top" alt="Kolom 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Kolom 3</h5>
+                            <p class="card-text">Ini adalah deskripsi dari kolom ketiga.</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalFacebook">
+                                Baca Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal YouTube -->
+    <div class="modal fade" id="modalYouTube" tabindex="-1" aria-labelledby="modalYouTubeLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalYouTubeLabel">YouTube</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>YouTube Sosial Media</h5>
+                    <ul class="list-group" id="socialLinksListYouTube"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Instagram -->
+    <div class="modal fade" id="modalInstagram" tabindex="-1" aria-labelledby="modalInstagramLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInstagramLabel">Instagram</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Instagram Sosial Media</h5>
+                    <ul class="list-group" id="socialLinksListInstagram"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Facebook -->
+    <div class="modal fade" id="modalFacebook" tabindex="-1" aria-labelledby="modalFacebookLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalFacebookLabel">Facebook</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Facebook Sosial Media</h5>
+                    <ul class="list-group" id="socialLinksListFacebook"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Introduction Section -->
+        <section class="intro text-center my-5">
+            <h1 class="display-4">Software Engineer</h1>
+            <p class="lead">I build things for the web.</p>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects mb-5">
+            <h2 class="h4">Projects</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">HTML Only Portfolio</li>
+                <li class="list-group-item">Calculator</li>
+                <li class="list-group-item">Quiz App</li>
+                <li class="list-group-item">Countdown Timer</li>
+                <li class="list-group-item">Product Upcoming Page</li>
+            </ul>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="work-experience mb-5">
+            <h2 class="h4">Work Experience</h2>
+
+            <!-- Experience 1 -->
+            <article class="mb-4">
+                <h3 class="h5">roadmap.sh</h3>
+                <p>Solved all the frontend projects</p>
+                <a href="projects.html" class="btn btn-primary">Visit my Profile</a>
+            </article>
+
+            <!-- Experience 2 -->
+            <article class="mb-4">
+                <h3 class="h5">OpenSource Work</h3>
+                <p>Contributed to i am do nothing to open-source projects. Made my own projects.</p>
+                <a href="https://github.com/ach-faisal-rid" class="btn btn-secondary">Visit my GitHub Profile</a>
+            </article>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education mb-5">
+            <h2 class="h4">Education</h2>
+            <p>Undergraduate in Computer Science, studies included the following:</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Object Oriented Programming</li>
+                <li class="list-group-item">Data Structures and Algorithms</li>
+                <li class="list-group-item">Web Engineering</li>
+                <li class="list-group-item">Artificial Intelligence</li>
+                <li class="list-group-item">Human-Computer Interaction</li>
+                <li class="list-group-item">Computer Graphics</li>
+                <li class="list-group-item">Database Management Systems</li>
+                <li class="list-group-item">Distributed Database Systems</li>
+                <li class="list-group-item">Discrete Mathematics</li>
+            </ul>
+        </section>
+
+        <!-- Reviews Section -->
+        <aside class="reviews mb-5 mt-5">
+            <h2 class="h4 text-center mb-4">Review from my teachers</h2>
+
+            <!-- Testimonial 1 -->
+            <div class="card mb-3 shadow-sm border-0">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p class="mb-3">John Doe was a brilliant student; always stood out with his assignments.</p>
+                        <footer class="blockquote-footer">Jane Doe,
+                            <cite title="Source Title">Assistant Professor</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="card mb-3 shadow-sm border-0">
+                <div class="card-body">
+                    <!-- Review 2 -->
+                    <blockquote class="blockquote mb-0">
+                        <p class="mb-3">John Doe was a brilliant student; always stood out with his assignments.</p>
+                        <footer class="blockquote-footer">Jane Doe, <cite title="Source Title">Assistant Professor</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="card mb-3 shadow-sm border-0">
+                <div class="card-body">
+                    <!-- Review 3 -->
+                     <blockquote class="blockquote mb-0">
+                         <p class="mb-3">John Doe was a brilliant student; always stood out with his assignments.</p>
+                         <footer class="blockquote-footer">Jane Doe, <cite title="Source Title">Assistant Professor</cite>
+                         </footer>
+                     </blockquote>
+                 </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <p>&copy; 2024 Design with love 💘 by Faisal Achmad Ridhani</p>
+
+        <!-- Navigation Links -->
+        <nav>
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a href="projects.html" class="text-white">Projects</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="articles.html" class="text-white">Articles</a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="contact.html" class="text-white">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+    <!-- Memasukkan Bootstrap JavaScript dan Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Memasukkan file data.js -->
+    <script src="data.js"></script>
+
+    <!-- custom javascript -->
+    <script>
+        // Fungsi untuk memuat social links berdasarkan id
+        function loadSocialLinksById(id) {
+            // Temukan data berdasarkan id
+            const link = socialLinks.find(item => item.id === id);
+
+            // Periksa jika link ditemukan
+            if (link) {
+                const modalListId = `socialLinksList${link.platform}`;
+                const modalList = document.getElementById(modalListId);
+
+                // Kosongkan daftar sosial media yang ada di modal
+                modalList.innerHTML = '';
+
+                // Tampilkan link sosial media di modal
+                const listItem = document.createElement('li');
+                listItem.classList.add('list-group-item');
+                listItem.innerHTML = `<a href="${link.url}" target="_blank">${link.username}</a>`;
+                modalList.appendChild(listItem);
+            } else {
+                console.error("Link tidak ditemukan!");
+            }
+        }
+
+        // Event listener untuk menampilkan sosial links berdasarkan modal
+        document.querySelectorAll('[data-bs-target^="#modal"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const platform = button.dataset.bsTarget.replace('#modal', '');
+                loadSocialLinksById(platform);
+            });
+        });
+    </script>
+</body>
+
+</html>

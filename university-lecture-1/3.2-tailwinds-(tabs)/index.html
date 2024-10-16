@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana dengan tailwinds</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Single page CV of Faisal Achmad Ridhani, a Software Engineer" />
+    <meta name="keywords"
+        content="frontend developer, html, css, javascript, resume, web developer, software engineer" />
+    <meta name="author" content="Faisal Achmad Ridhani" />
+
+    <!-- Memasukkan tailwinds CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+
+    <!-- Favicon Meta Tags -->
+    <link rel="icon" href="image/robot-32.png" type="image/x-icon" />
+
+    <!-- menambahkan fontawesome -->
+    
+
+    <!-- Custom CSS -->
+    <style>
+        button:focus {
+          outline: none;
+      }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-md mx-auto bg-white shadow-lg rounded-lg">
+        <!-- Tabs Navigation -->
+        <div class="border-b border-gray-200">
+            <nav class="flex justify-around">
+                <button class="tab-button py-4 px-6 text-blue-600 border-b-2 border-blue-600 font-semibold" data-tab-target="tab1">Tab 1</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab2">Tab 2</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab3">Tab 3</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab4">Tab 4</button>
+            </nav>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="p-6">
+            <div class="tab-content" id="tab1">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 1</h2>
+                <p>This is the content of the first tab. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="tab-content hidden" id="tab2">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 2</h2>
+                <p>This is the content of the second tab. Quisque scelerisque magna et tellus tristique, at gravida nulla tristique.</p>
+            </div>
+            <div class="tab-content hidden" id="tab3">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 3</h2>
+                <p>This is the content of the third tab. Phasellus convallis orci nec ligula bibendum, id pulvinar dolor volutpat.</p>
+            </div>
+            <div class="tab-content hidden" id="tab4">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 4</h2>
+                <p>This is the content of the third tab. Phasellus convallis orci nec ligula bibendum, id pulvinar dolor volutpat.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      // JavaScript for Tabs functionality
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              // Remove active class from all buttons
+              tabButtons.forEach(btn => {
+                btn.classList.remove('border-blue-600', 'text-blue-600', 'border-b-2');
+                btn.classList.add('text-gray-500');
+              });
+
+              // Add active class to clicked button
+              button.classList.add('border-blue-600', 'text-blue-600', 'border-b-2');
+              button.classList.remove('text-gray-500');
+
+              // Hide all tab contents
+              tabContents.forEach(content => content.classList.add('hidden'));
+
+              // Show the target tab content
+              const targetTab = document.getElementById(button.getAttribute('data-tab-target'));
+              targetTab.classList.remove('hidden');
+          });
+      });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features</title>
+    <!-- Memasukkan Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Datepicker CSS (Bootstrap 5 compatible) -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- Custom CSS untuk sticky footer -->
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .content {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        /* Pastikan warna ikon terlihat */
+        .datepicker .fa-calendar-alt {
+            color: #495057 !important;
+            /* Warna kontras untuk ikon kalender */
+        }
+
+        .datepicker .fa-chevron-left,
+        .datepicker .fa-chevron-right {
+            color: #495057 !important;
+            /* Warna kontras untuk panah navigasi */
+        }
+
+        /* Styling form control untuk tampilan yang lebih terang */
+        .form-control {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Kolom otomatis dengan lebar min 250px */
+      grid-gap: 20px;
+    }
+    .grid-item {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .grid-item .card-body {
+      padding: 10px;
+    }
+
+        /* Styling footer agar tetap di bawah */
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Hello</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="features.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pricing.html">Pricing</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content container mt-5">
+            <h2 class="text-center">Our Features</h2>
+            <p class="text-center">We offer a wide range of features to help you grow and succeed.</p>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Feature 1</h5>
+                            <p class="card-text">Description of the first feature. This feature helps you do amazing
+                                things.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Feature 2</h5>
+                            <p class="card-text">Description of the second feature. This feature provides unique
+                                benefits.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Feature 3</h5>
+                            <p class="card-text">Description of the third feature. A truly outstanding feature for
+                                users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menambahkan datepicker -->
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-sm-8 col-lg-4">
+                        <!-- Card Wrapper -->
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <!-- Form Group for Datepicker -->
+                                <div class="form-group position-relative">
+                                    <label for="date" class="form-label">Select a date</label>
+                                    <input type="text" class="form-control form-control-lg" id="datepicker"
+                                        placeholder="Choose a date" aria-describedby="dateHelp">
+                                    <!-- Icon for Datepicker -->
+                                    <span class="position-absolute top-50 end-0 translate-middle-y pe-3">
+                                        <i class="fas fa-calendar-alt" style="color: #495057;"></i>
+                                    </span>
+                                </div>
+                                <!-- Optional: Help Text -->
+                                <small id="dateHelp" class="form-text text-muted">Pick a date from the calendar or type
+                                    manually.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- menambahkan image grid  -->
+            <div class="container my-5">
+                <h2 class="text-center mb-4">Pinterest-style Image Grid</h2>
+                
+                <div class="grid-container">
+                  <!-- Item 1 -->
+                  <div class="grid-item">
+                    <img src="image/profile-1.jpg" alt="Image 1" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 1</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <!-- Item 2 -->
+                  <div class="grid-item">
+                    <img src="image/profile-2.jpg" alt="Image 2" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 2</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <!-- Item 3 -->
+                  <div class="grid-item">
+                    <img src="image/profile-3.jpg" alt="Image 3" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 3</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <!-- Item 4 -->
+                  <div class="grid-item">
+                    <img src="image/profile-4.jpg" alt="Image 4" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 4</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <!-- Tambahkan lebih banyak item sesuai kebutuhan -->
+                  
+                  <div class="grid-item">
+                    <img src="image/profile-5.jpg" alt="Image 4" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 5</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <img src="image/profile-6.jpg" alt="Image 4" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 6</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <img src="image/profile-7.jpg" alt="Image 4" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 7</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                  <div class="grid-item">
+                    <img src="image/hgp.jpg" alt="Image 4" class="img-fluid">
+                    <div class="card-body">
+                      <h5 class="card-title">Image Title 8</h5>
+                      <p class="card-text">This is a description of the image. You can add more details about this image here.</p>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-primary text-white text-center py-3">
+            <p>&copy; 2024 Design with love 💘 by Faisal Achmad Ridhani</p>
+        </footer>
+    </div>
+
+    <!-- Memasukkan Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Datepicker JavaScript -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- custom datepicker js -->
+    <script>
+        $('#datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            todayHighlight: true,
+            clearBtn: true,
+            orientation: "bottom auto",
+            templates: {
+                leftArrow: '<i class="fas fa-chevron-left" style="color: #495057;"></i>',
+                rightArrow: '<i class="fas fa-chevron-right" style="color: #495057;"></i>'
+            }
+        });
+    </script>
+
+</body>
+
+</html>
