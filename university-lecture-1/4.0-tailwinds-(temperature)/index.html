@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana dengan Tailwinds</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Single page CV of Faisal Achmad Ridhani, a Software Engineer" />
+    <meta name="keywords" content="frontend developer, html, css, javascript, resume, web developer, software engineer" />
+    <meta name="author" content="Faisal Achmad Ridhani" />
+
+    <!-- Memasukkan Tailwinds CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Favicon Meta Tags -->
+    <link rel="icon" href="image/robot-32.png" type="image/x-icon" />
+
+    <!-- Custom CSS -->
+    <style>
+        button:focus {
+            outline: none;
+        }
+
+        /* Cookie consent bar styles */
+        #cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2d3748;
+            color: #ffffff;
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        #cookie-consent button {
+            background-color: #4a5568;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #cookie-consent button:hover {
+            background-color: #2b6cb0;
+        }
+
+        /* Custom styles for textarea */
+        .textarea {
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+        }
+
+        .textarea.maxed {
+            border-color: red;
+        }
+
+        /* Accordion styles */
+        .accordion-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background-color: #f7fafc;
+            cursor: pointer;
+            padding: 10px;
+            font: semibold;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: #e2e8f0;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 10px;
+            background-color: white;
+        }
+
+        .accordion-content.open {
+            max-height: 200px;
+            padding: 10px;
+        }
+
+        /* Reddit styles */
+        .reddit-post {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-md mx-auto bg-white shadow-lg rounded-lg">
+        <!-- Tabs Navigation -->
+        <div class="border-b border-gray-200">
+            <nav class="flex justify-around">
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab4">Task Tracker</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab5">GitHub Random Repo</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tabReddit">Reddit Client</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tabWeather">Weather</button>
+            </nav>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="p-6">
+            <div class="tab-content hidden" id="tab4">
+                <h2 class="text-2xl font-semibold mb-4">Task Tracker</h2>
+                <div class="mb-4">
+                    <input type="text" id="taskDescription" class="w-full p-2 border border-gray-300 rounded" placeholder="Task description" />
+                    <button id="addTaskButton" class="mt-2 w-full bg-blue-600 text-white p-2 rounded">Add Task</button>
+                </div>
+                <ul id="taskList" class="list-disc pl-5"></ul>
+            </div>
+
+            <div class="tab-content hidden" id="tab5">
+                <h2 class="text-2xl font-semibold mb-4">GitHub Random Repository</h2>
+                <button id="fetchRepoButton" class="w-full bg-blue-600 text-white p-2 rounded">Get Random Repository</button>
+                <div id="repoInfo" class="mt-4"></div>
+                <button id="refreshRepoButton" class="hidden mt-2 w-full bg-green-600 text-white p-2 rounded">Refresh</button>
+            </div>
+
+            <div class="tab-content hidden" id="tabReddit">
+                <h2 class="text-2xl font-semibold mb-4">Reddit Client</h2>
+                <input type="text" id="subredditInput" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter subreddit name" />
+                <button id="addSubredditButton" class="mt-2 w-full bg-blue-600 text-white p-2 rounded">Add Subreddit</button>
+                <div id="redditPosts" class="mt-4"></div>
+            </div>
+
+            <div class="tab-content hidden" id="tabWeather">
+                <h2 class="text-2xl font-semibold mb-4">Weather</h2>
+                <input type="text" id="cityInput" class="w-full p-2 border border-gray-300 rounded" placeholder="Enter city name" />
+                <button id="getWeatherButton" class="mt-2 w-full bg-blue-600 text-white p-2 rounded">Get Weather</button>
+                <div id="weatherInfo" class="mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Cookie Consent -->
+        <div id="cookie-consent" class="bg-gray-800">
+            <span>We use cookies to ensure that we give you the best experience on our website. </span>
+            <button id="accept-cookies">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Tabs functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('border-blue-600', 'text-blue-600', 'border-b-2');
+                    btn.classList.add('text-gray-500');
+                });
+
+                // Add active class to clicked button
+                button.classList.add('border-blue-600', 'text-blue-600', 'border-b-2');
+                button.classList.remove('text-gray-500');
+
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.add('hidden'));
+
+                // Show the target tab content
+                const target = button.getAttribute('data-tab-target');
+                document.getElementById(target).classList.remove('hidden');
+            });
+        });
+
+        // JavaScript for task tracker
+        const taskDescriptionInput = document.getElementById('taskDescription');
+        const addTaskButton = document.getElementById('addTaskButton');
+        const taskList = document.getElementById('taskList');
+
+        addTaskButton.addEventListener('click', () => {
+            const taskDescription = taskDescriptionInput.value;
+            if (taskDescription) {
+                const listItem = document.createElement('li');
+                listItem.textContent = taskDescription;
+                taskList.appendChild(listItem);
+                taskDescriptionInput.value = '';
+            }
+        });
+
+        // JavaScript for fetching random GitHub repository
+        const fetchRepoButton = document.getElementById('fetchRepoButton');
+        const repoInfo = document.getElementById('repoInfo');
+        const refreshRepoButton = document.getElementById('refreshRepoButton');
+
+        fetchRepoButton.addEventListener('click', async () => {
+            const response = await fetch('https://api.github.com/repositories/random');
+            const repo = await response.json();
+            repoInfo.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>: ${repo.description}`;
+            fetchRepoButton.classList.add('hidden');
+            refreshRepoButton.classList.remove('hidden');
+        });
+
+        refreshRepoButton.addEventListener('click', async () => {
+            const response = await fetch('https://api.github.com/repositories/random');
+            const repo = await response.json();
+            repoInfo.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>: ${repo.description}`;
+        });
+
+        // JavaScript for Reddit client
+        const subredditInput = document.getElementById('subredditInput');
+        const addSubredditButton = document.getElementById('addSubredditButton');
+        const redditPosts = document.getElementById('redditPosts');
+
+        addSubredditButton.addEventListener('click', async () => {
+            const subreddit = subredditInput.value;
+            const response = await fetch(`https://www.reddit.com/r/${subreddit}/top.json?limit=5`);
+            const data = await response.json();
+            redditPosts.innerHTML = '';
+            data.data.children.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.classList.add('reddit-post');
+                postDiv.innerHTML = `<h3>${post.data.title}</h3><a href="${post.data.url}" target="_blank">Read more</a>`;
+                redditPosts.appendChild(postDiv);
+            });
+            subredditInput.value = '';
+        });
+
+        // JavaScript for Weather functionality
+        const cityInput = document.getElementById('cityInput');
+        const getWeatherButton = document.getElementById('getWeatherButton');
+        const weatherInfo = document.getElementById('weatherInfo');
+
+        getWeatherButton.addEventListener('click', async () => {
+            const city = cityInput.value;
+            const apiKey = 'cari sendiri, jangan ngalem, bukan siapa2 ku kamu'; // Ganti dengan API key Anda
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            const data = await response.json();
+            if (data.cod === 200) {
+                weatherInfo.innerHTML = `
+                    <p><strong>${data.name}</strong></p>
+                    <p>Temperature: ${data.main.temp}°C</p>
+                    <p>Feels Like: ${data.main.feels_like}°C</p>
+                    <p>Humidity: ${data.main.humidity}%</p>
+                    <p>Wind Speed: ${data.wind.speed} m/s</p>
+                `;
+            } else {
+                weatherInfo.innerHTML = `<p>Error: ${data.message}</p>`;
+            }
+            cityInput.value = '';
+        });
+
+        // Cookie consent functionality
+        const cookieConsent = document.getElementById('cookie-consent');
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+
+        acceptCookiesButton.addEventListener('click', () => {
+            cookieConsent.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
