@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana dengan tailwinds</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="cookie_consent of Faisal Achmad Ridhani, a Software Engineer" />
+    <meta name="keywords"
+        content="frontend developer, html, css, javascript, resume, web developer, software engineer" />
+    <meta name="author" content="Faisal Achmad Ridhani" />
+
+    <!-- Memasukkan tailwinds CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- Favicon Meta Tags -->
+    <link rel="icon" href="image/robot-32.png" type="image/x-icon" />
+
+    <!-- menambahkan fontawesome -->
+
+
+    <!-- Custom CSS -->
+    <style>
+        button:focus {
+            outline: none;
+        }
+
+        /* Cookie consent bar styles */
+        #cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2d3748;
+            color: #ffffff;
+            padding: 20px;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        #cookie-consent button {
+            background-color: #4a5568;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #cookie-consent button:hover {
+            background-color: #2b6cb0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-md mx-auto bg-white shadow-lg rounded-lg">
+        <!-- Tabs Navigation -->
+        <div class="border-b border-gray-200">
+            <nav class="flex justify-around">
+                <button class="tab-button py-4 px-6 text-blue-600 border-b-2 border-blue-600 font-semibold"
+                    data-tab-target="tab1">Tab 1</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab2">Tab
+                    2</button>
+                <button class="tab-button py-4 px-6 text-gray-500 hover:text-blue-600" data-tab-target="tab3">Tab
+                    3</button>
+            </nav>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="p-6">
+            <div class="tab-content" id="tab1">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 1</h2>
+                <p>This is the content of the first tab. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="tab-content hidden" id="tab2">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 2</h2>
+                <p>This is the content of the second tab. Quisque scelerisque magna et tellus tristique, at gravida
+                    nulla tristique.</p>
+            </div>
+            <div class="tab-content hidden" id="tab3">
+                <h2 class="text-2xl font-semibold mb-4">Content for Tab 3</h2>
+                <p>This is the content of the third tab. Phasellus convallis orci nec ligula bibendum, id pulvinar dolor
+                    volutpat.</p>
+            </div>
+        </div>
+
+        <!-- Cookie Consent -->
+        <div id="cookie-consent" class="bg-gray-800">
+            <span>We use cookies to ensure that we give you the best experience on our website. </span>
+            <button id="accept-cookies">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Tabs functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('border-blue-600', 'text-blue-600', 'border-b-2');
+                    btn.classList.add('text-gray-500');
+                });
+
+                // Add active class to clicked button
+                button.classList.add('border-blue-600', 'text-blue-600', 'border-b-2');
+                button.classList.remove('text-gray-500');
+
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.add('hidden'));
+
+                // Show the target tab content
+                const targetTab = document.getElementById(button.getAttribute('data-tab-target'));
+                targetTab.classList.remove('hidden');
+            });
+        });
+
+        // JavaScript for Cookie Consent
+        const cookieConsent = document.getElementById('cookie-consent');
+        const acceptCookiesButton = document.getElementById('accept-cookies');
+
+        // Check if the cookie consent is already accepted
+        if (!localStorage.getItem('cookieConsent')) {
+            cookieConsent.style.display = 'block';
+        }
+
+        // Handle accepting cookies
+        acceptCookiesButton.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'true');
+            cookieConsent.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
