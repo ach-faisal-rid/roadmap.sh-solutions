@@ -18,7 +18,7 @@ Click any of the images below to view the readme and live demo of the project.
 
 <p align="left">
   <a href='/university-lecture-1/3.0-cv-website/'>
-    <img width="48%" src="/university-lecture-1/3.0-cv-website/image/Curriculum_Vitae.png" alt="single page cv" />
+    <img width="48%" src="/university-lecture-1/3.0-single_page_cv/image/Curriculum_Vitae.png" alt="single page cv" />
   </a>
   <a href='/university-lecture-1/2.3-bootsrap-(basic_html_website)/'>
     <img width="48%" src="./assets/portfolio-design-83-lku.png" alt="basic html website" />
