@@ -25,4 +25,4 @@ Mulai belajar dasar-dasar ini untuk bisa membangun website impianmu!
 
 - 📚 [Playlist Algoritma Dasar](https://www.youtube.com/playlist?list=PLY8UqHV3-fsHEFOoiwLZffhF6HNMw9Y5S)
 - 🎶 [Playlist Sekolah Kuy atau Kampus Kuy semester 1: frontend](https://www.youtube.com/playlist?list=PLY8UqHV3-fsHqcSNaG9Xp_pvspUBn1DKp)
-- 🎶 [semester 2: backend]
+- 🎶 [sekolah kuy atau kampus kuy semester 2 : backend](https://www.youtube.com/playlist?list=PLY8UqHV3-fsG726nNPT1YAiT-9jbzQMhv)
