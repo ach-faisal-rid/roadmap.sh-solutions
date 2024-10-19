@@ -1,0 +1,11 @@
+{
+  "name": "task-tracker",
+  "version": "1.0.0",
+  "description": "university-lecture-2: backend: 1. task tracker (CLI)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "faisal achmad ridhani",
+  "license": "ISC"
+}

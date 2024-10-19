@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "description": "Membeli bahan makanan",
+    "status": "done",
+    "createdAt": "2024-10-17T06:41:07.902Z",
+    "updatedAt": "2024-10-18T11:32:11.272Z"
+  },
+  {
+    "id": 2,
+    "description": "membeli buku pemograman",
+    "status": "todo",
+    "createdAt": "2024-10-18T11:33:02.522Z",
+    "updatedAt": "2024-10-18T11:33:02.523Z"
+  },
+  {
+    "id": 3,
+    "description": "aaa111",
+    "status": "todo",
+    "createdAt": "2024-10-19T05:05:30.097Z",
+    "updatedAt": "2024-10-19T05:05:54.711Z"
+  }
+]
