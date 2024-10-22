@@ -1,0 +1,55 @@
+/* typografi */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* Gaya dasar untuk body */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.5s, color 0.5s;
+    font-family: "Quicksand", sans-serif, serif;
+}
+
+/* Gaya untuk mode gelap */
+body.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Gaya untuk kontainer dan kartu */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Gaya untuk link di menu */
+a {
+    text-decoration: none; /* Menghapus garis bawah */
+    background-color: #88C273; /* Warna latar belakang hijau */
+    color: white; /* Warna teks putih */
+    padding: 10px 15px; /* Padding dalam link */
+    border-radius: 5px; /* Sudut membulat */
+    transition: background-color 0.3s, color 0.3s; /* Transisi halus untuk hover */
+}
+
+/* Gaya saat hover */
+a:hover {
+    background-color: #243642; /* Warna saat hover */
+}
+
+.card {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin: 20px 0;
+    color: #000000;
+}
+
+.card h1 {
+    margin: 0;
+}
+
+.card .info {
+    margin-top: 10px;
+    font-weight: bold;
+}
