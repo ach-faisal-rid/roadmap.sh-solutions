@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Generator Password</title>
+    <!-- import tailwind cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Password Generator</h1>
+        
+        <div class="mb-4">
+            <label for="length" class="block mb-2">Panjang Kata Sandi:</label>
+            <input type="number" id="length" class="border rounded p-2 w-full" min="1" max="30" value="12">
+        </div>
+
+        <div class="mb-4">
+            <label class="block mb-2">Pilih Karakter:</label>
+            <div class="flex items-center">
+                <input type="checkbox" id="uppercase" checked>
+                <label for="uppercase" class="ml-2">Huruf Besar</label>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="lowercase" checked>
+                <label for="lowercase" class="ml-2">Huruf Kecil</label>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="numbers" checked>
+                <label for="numbers" class="ml-2">Angka</label>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="symbols" checked>
+                <label for="symbols" class="ml-2">Simbol</label>
+            </div>
+        </div>
+
+        <button id="generate" class="bg-blue-500 text-white rounded px-4 py-2 w-full mb-4">Hasilkan Kata Sandi</button>
+
+        <div class="mb-4">
+            <input type="text" id="password" class="border rounded p-2 w-full" readonly>
+        </div>
+
+        <button id="copy" class="bg-green-500 text-white rounded px-4 py-2 w-full">Salin Kata Sandi</button>
+        
+        <!-- Notifikasi -->
+        <div id="notification" class="hidden mt-2 p-2 bg-green-100 text-green-800 rounded" role="alert"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
