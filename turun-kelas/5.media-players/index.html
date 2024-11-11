@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Media Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.youtube.com/iframe_api"></script> <!-- API YouTube -->
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🎶 Media Player</h1>
+
+        <!-- Input YouTube URL -->
+        <div class="input-section">
+            <input type="text" id="youtubeUrl" placeholder="Masukkan URL YouTube" class="input">
+            <button onclick="playYouTube()" class="button">Putar YouTube</button>
+        </div>
+
+        <!-- Input Local File -->
+        <div class="input-section">
+            <input type="file" id="localFile" accept="audio/*,video/*" class="input">
+            <button onclick="playLocalFile()" class="button">Putar File Lokal</button>
+        </div>
+
+        <!-- Media Player -->
+        <div class="player-section">
+            <div id="youtubePlayer" style="display:none;"></div> <!-- Pemutar YouTube -->
+            <video id="localMediaPlayer" controls class="media-player" style="display:none;"></video>
+        </div>
+
+        <!-- Playback Controls -->
+        <div class="controls">
+            <button onclick="playPause()" class="control-btn">▶️ / ⏸️</button>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" class="volume-slider" onchange="setVolume()">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
