@@ -6,7 +6,7 @@
 
 ## Apa yang Akan Kita Buat?
 
-Kita akan membuat website sederhana dari nol berdasarkan video dari [Dea Af Rizal - Cuy University](https://www.youtube.com/channel/UCLf7K-5JikLmfMI2WudTGZg) (semester 1). Tampilan website yang akan kita buat cukup sederhana.
+Kita akan membuat website sederhana dari nol berdasarkan video dari [Dea Afrizal - Cuy University](https://www.youtube.com/channel/UCLf7K-5JikLmfMI2WudTGZg) (semester 1). Tampilan website yang akan kita buat cukup sederhana.
 
 ### Desain Website
 
